@@ -8,12 +8,12 @@ const input = async (userId, tags) => {
   logHelper.log(`Will add tags ${tags} to user ${userId}`);
   const tagList = tags.split(",");
   for (let tagIndex = 0; tagIndex < tagList.length; tagIndex++) {
-    await addSegmentToUser(userId, tagList[tagIndex]);
+    await _add(userId, tagList[tagIndex]);
   }
   return true;
 };
 
-const addSegmentToUser = async (userId, tag) => {
+const _add = async (userId, tag) => {
   logHelper.log(`Adding tag ${tag} to user ${userId}`);
   const key = generateKey(KEY_PREFIX, userId);
   const currentWeight = await redisClient.zscore(key, tag);
