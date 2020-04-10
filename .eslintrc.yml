@@ -1,0 +1,26 @@
+env:
+  node: true
+  es6: true
+
+extends:
+  - eslint-config-prettier
+  - eslint:recommended
+
+plugins:
+  - prettier
+
+globals:
+  Promise: true
+
+rules:
+  prettier/prettier:
+    - error
+  arrow-body-style: off
+  no-console: off
+
+parserOptions:
+  sourceType: module
+  ecmaVersion: 2018
+  ecmaFeatures:
+    - experimentalObjectRestSpread
+

@@ -1,0 +1,15 @@
+### INSERT
+### insert data, looking sport news
+POST http://localhost:3000/segmentation/user1/sport,news
+### insert data, looking sport documentary
+POST http://localhost:3000/segmentation/user2/sport,documentaries
+### insert data, looking news
+POST http://localhost:3000/segmentation/user1/news
+
+### FETCH
+### segments for user 1
+GET http://localhost:3000/segmentation/user1
+### segments for user 2
+GET http://localhost:3000/segmentation/user2
+### users per segment
+GET http://localhost:3000/segmentation/segment/sport
