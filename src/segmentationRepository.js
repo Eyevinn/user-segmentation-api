@@ -16,10 +16,7 @@ const input = async (userId, tags) => {
 const _add = async (userId, tag) => {
   logHelper.log(`Adding tag ${tag} to user ${userId}`);
   const key = generateKey(KEY_PREFIX, userId);
-  const currentWeight = await redisClient.zscore(key, tag);
-  const newWeight = (currentWeight ? Number(currentWeight) + 1 : 1).toString();
-  logHelper.log(`Updating value of tag ${tag} to ${newWeight}`);
-  const res = await redisClient.zadd(key, newWeight, tag);
+  const res = await redisClient.zincrby(key, 1, tag);
   logHelper.log(`New value on tag ${tag} is set, ${res}`);
   return true;
 };
