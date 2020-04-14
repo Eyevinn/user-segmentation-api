@@ -7,7 +7,6 @@ module.exports = (fastify, opts, next) => {
     if (!userId || !tags) return res.code(500).send();
 
     const store = await segmentationRepository.input(userId, tags);
-    // TODO: iterate count on segment
 
     res.header("Cache-Control", "public, no-cache").code(200).send(store);
   });
