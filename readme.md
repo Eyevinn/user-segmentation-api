@@ -35,6 +35,7 @@ Examples are available in the `example.http` file.
 - `REDIS_URL` if not local
 - `REDIS_PORT` if not default (6379)
 - `REDIS_AUTH`
+- `SEGMENTATION_TTL` for how long a segment input should be valid, before decreased in weight.
 
 ## Docker
 
