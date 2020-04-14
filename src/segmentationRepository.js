@@ -82,8 +82,9 @@ const userGroupSize = async (tag) => {
   logHelper.log(`Requesting number of users with tag ${tag}`);
   const pattern = generateKey(`*${KEY_PREFIX}*`, tag);
   const keys = await redisClient.keys(pattern);
-  if (!keys) return [];
-  return keys;
+  if (!keys) return 0;
+  const users = keys.map((key) => key.split(":")[1]);
+  return users.length;
 };
 
 module.exports = {

@@ -27,6 +27,7 @@ The client _should_ post the tags each consumed video. This backend will set the
 ## Endpoints
 
 - POST `/segmentation/:userId/:tags` To set or update the weight of the tags on the user (tags comma separated)
+- GET `/segmentation/segment/:tag` To get the number of users tagged with the specified tag.
 - GET `/user/:userId/segments` To get a sorted list of the segments which the user belongs to. Weighted.
 - GET `/user/:userId/interest`To get a single interest randomly selected, but with weight in concern.
 
