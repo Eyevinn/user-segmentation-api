@@ -3,6 +3,8 @@
 Example of a simple implementation to build a user segmentation api on top of Redis.
 This can for instance be used to categorize users into segment for ads or recommendations.
 
+The client _should_ post the tags each consumed video. This backend will set the tags on the user and increment its weight if it already exists. over time, default 30 days, the weight will decrease. So the segmentation of interests should always be up to date with the users latests interests.
+
 #### Related repositories
 
 - [Ratings API](https://github.com/Eyevinn/ratings-api)
@@ -35,7 +37,7 @@ Examples are available in the `example.http` file.
 - `REDIS_URL` if not local
 - `REDIS_PORT` if not default (6379)
 - `REDIS_AUTH`
-- `SEGMENTATION_TTL` for how long a segment input should be valid, before decreased in weight.
+- `SEGMENTATION_TTL` for how long a segment input should be valid, before decreased in weight. (Default 30 days)
 
 ## Docker
 
