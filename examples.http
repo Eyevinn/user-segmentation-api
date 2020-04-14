@@ -8,8 +8,10 @@ POST http://localhost:3000/segmentation/user1/news
 
 ### FETCH
 ### segments for user 1
-GET http://localhost:3000/segmentation/user1
+GET http://localhost:3000/user/user1/segments
 ### segments for user 2
-GET http://localhost:3000/segmentation/user2
+GET http://localhost:3000/user/user2/segments
+### single weighted interest for user 1
+GET http://localhost:3000/user/user1/interest
 ### users per segment
 GET http://localhost:3000/segmentation/segment/sport

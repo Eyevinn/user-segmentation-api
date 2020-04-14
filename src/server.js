@@ -10,8 +10,11 @@ fastify.register(fastifyRateLimit, {
   timeWindow: "1 minute",
 });
 
-fastify.register(require("./routes"), {
+fastify.register(require("./routes-segmentation"), {
   prefix: "/segmentation",
+});
+fastify.register(require("./routes-user"), {
+  prefix: "/user",
 });
 
 module.exports = fastify;

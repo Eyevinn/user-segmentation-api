@@ -1,4 +1,5 @@
 const segmentationRepository = require("./segmentationRepository");
+const utils = require("./helpers/utils");
 
 module.exports = (fastify, opts, next) => {
   fastify.post("/:userId/:tags", async (req, res) => {
@@ -11,19 +12,11 @@ module.exports = (fastify, opts, next) => {
     res.header("Cache-Control", "public, no-cache").code(200).send(store);
   });
 
-  fastify.get("/:userId", async (req, res) => {
-    const userId = req.params.userId;
-    if (!userId) {
-      return res.code(500).send("Missing required userId");
-    }
-
-    const segments = await segmentationRepository.list(userId);
-
-    res.header("Cache-Control", "public, no-cache").code(200).send(segments);
-  });
-
   fastify.get("/segment/:tag", async (req, res) => {
     // TODO: Get the amount of users in a segment tag
+    const tag = req.params.tag;
+    const list = await segmentationRepository.userGroupSize(tag);
+    res.header("Cache-Control", "public, no-cache").code(200).send(list);
   });
 
   next();

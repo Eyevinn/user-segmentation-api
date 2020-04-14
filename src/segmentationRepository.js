@@ -78,7 +78,14 @@ const list = async (userId) => {
   return sortedRankedSegments;
 };
 
+const userGroupSize = async (tag) => {
+  logHelper.log(`Requesting number of users with tag ${tag}`);
+  const keys = redisClient.zscan("segments:*", 0, "match", tag);
+  return keys;
+};
+
 module.exports = {
   input,
   list,
+  userGroupSize,
 };
