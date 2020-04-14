@@ -80,7 +80,9 @@ const list = async (userId) => {
 
 const userGroupSize = async (tag) => {
   logHelper.log(`Requesting number of users with tag ${tag}`);
-  const keys = redisClient.zscan("segments:*", 0, "match", tag);
+  const pattern = generateKey(`*${KEY_PREFIX}*`, tag);
+  const keys = await redisClient.keys(pattern);
+  if (!keys) return [];
   return keys;
 };
 
