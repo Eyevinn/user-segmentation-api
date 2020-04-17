@@ -11,6 +11,7 @@ The client _should_ post the tags each consumed video. This backend will set the
 - [Favorites API](https://github.com/Eyevinn/favorites-api)
 - [Continue Watching API](https://github.com/Eyevinn/continue-watching-api)
 - [Stream Limit API](https://github.com/Eyevinn/stream-limit-api)
+- [Recommendation Engine](https://github.com/Eyevinn/eye-recommender)
 
 ## Requirements
 
